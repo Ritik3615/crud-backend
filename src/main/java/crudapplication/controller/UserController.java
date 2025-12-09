@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Controller
+@RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class UserController {
     private final UserService userService;
 
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     //Read One
-    @RequestMapping("/users/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<UserTable1> getOne(@PathVariable Long id){
         return ResponseEntity.ok(userService.findById(id));
     }
